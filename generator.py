@@ -61,20 +61,21 @@ def generate_table(amount_mapping):
     yield "\t\t</table>"
 
 def generate_cards(amount_mapping):
+    height,width = 180,180
     for value, amount in amount_mapping.iteritems():
         for i in range(amount):
             yield """<div style='
                 border: solid 1px; 
                 text-align: center; 
-                width: 200px; 
-                height: 240px; 
-                line-height: 240px;
+                width: {3}px; 
+                height: {2}px; 
+                line-height: {2}px;
                 margin: 5px; 
                 vertical-align:bottom; 
                 padding: 10px;
                 font-size: 80px;
                 background-color: {1}'>
-            {0}</div>""".format(value, colors[value])
+            {0}</div>""".format(value, colors[value], height, width)
 
 if __name__ == "__main__":
     filename = sys.argv[1]
