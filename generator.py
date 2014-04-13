@@ -25,19 +25,19 @@ colors = {
     2048:"#BB0000"
 }
 
-def main(amount_mapping):
+def main(amount_mapping, use_color=True):
     yield """<html>
         <head>
-            <title>Jotari QR Codes</title>
+            <title>2048</title>
         </head>"""
     yield """<body style="font-family:arial; font-size:80px">"""
 
-    yield "\n".join(generate_table(amount_mapping))
+    yield "\n".join(generate_table(amount_mapping, use_color))
 
     yield """\n\t</body></html>"""
 
-def generate_table(amount_mapping):
-    cells = generate_cards(amount_mapping)
+def generate_table(amount_mapping, use_color=True):
+    cells = generate_cards(amount_mapping, use_color)
     #import ipdb; ipdb.set_trace()
     total = sum(amount_mapping.values())
     columns = 4
@@ -60,7 +60,7 @@ def generate_table(amount_mapping):
         yield "\t\t\t</tr>"
     yield "\t\t</table>"
 
-def generate_cards(amount_mapping):
+def generate_cards(amount_mapping, use_color=True):
     height,width = 180,180
     for value, amount in amount_mapping.iteritems():
         for i in range(amount):
@@ -75,15 +75,20 @@ def generate_cards(amount_mapping):
                 padding: 10px;
                 font-size: 80px;
                 background-color: {1}'>
-            {0}</div>""".format(value, colors[value], height, width)
+            {0}</div>""".format(value, colors[value] if use_color else "#ffffff", height, width)
 
 if __name__ == "__main__":
     filename = sys.argv[1]
+    if len(sys.argv) >= 3:
+        use_color_arg = sys.argv[2]
+        use_color = use_color_arg == "colored"
+    else:
+        use_color = False
 
     amount_mapping = OrderedDict()
     for k in range(1,12):
         amount_mapping[2**k] = 20
 
     with file(filename, "w+") as f:
-        for html in main(amount_mapping):
+        for html in main(amount_mapping, use_color):
             f.write(html)
