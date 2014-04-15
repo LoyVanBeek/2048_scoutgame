@@ -17,3 +17,8 @@ De verliezende speler krijgt een lagere kaart dan waar hij mee binnenkwam, bijvo
 Nadat bijde spelers weer een kaart hebben gaan ze weer op zoek naar iemand met dezelfde waarde en gaat het spelletje weer verder.
 
 Het spel kan op ieder moment eindigen, of als de kaartjes op zijn etc. Natuurlijk wint de speler met de hoogste kaart.
+
+Extra
+-----
+Als het spel te snel eindigt, de spelers te slim zijn of je het spel net wat spannender wil maken kun je de Gemene Deler inzetten.
+Deze speler probeert de gewone spelers te tikken. Als een speler is getikt wordt zijn waarde gehalveerd.
