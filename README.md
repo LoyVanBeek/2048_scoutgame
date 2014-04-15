@@ -15,3 +15,8 @@ The winner gets the 'added-up' card, the losing player gets a card lower than he
 After they leave the post, both players try to find someone with the same card again. 
 
 The game ends when you decide or cards run out. Of course, the winner is the player with the highest number. 
+
+Extra
+-----
+
+When your scouts are too smart, the game ends too soon or you want to make the game a bit more exciting, you can add the Denominator. When this player taps a normal player, his/her value is halved.
