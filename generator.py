@@ -25,19 +25,19 @@ colors = {
     2048:"#BB0000"
 }
 
-def main(amount_mapping, use_color=True):
+def main(amount_mapping, use_color=True, border_colored=True):
     yield """<html>
         <head>
             <title>2048</title>
         </head>"""
     yield """<body style="font-family:arial; font-size:80px">"""
 
-    yield "\n".join(generate_table(amount_mapping, use_color))
+    yield "\n".join(generate_table(amount_mapping, use_color, border_colored))
 
     yield """\n\t</body></html>"""
 
-def generate_table(amount_mapping, use_color=True):
-    cells = generate_cards(amount_mapping, use_color)
+def generate_table(amount_mapping, use_color=True, border_colored=True):
+    cells = generate_cards(amount_mapping, use_color, border_colored)
     #import ipdb; ipdb.set_trace()
     total = sum(amount_mapping.values())
     columns = 4
@@ -60,12 +60,19 @@ def generate_table(amount_mapping, use_color=True):
         yield "\t\t\t</tr>"
     yield "\t\t</table>"
 
-def generate_cards(amount_mapping, use_color=True):
-    height,width = 180,180
+def generate_cards(amount_mapping, use_color=True, border_colored=True):
+    #import ipdb; ipdb.set_trace()
     for value, amount in amount_mapping.iteritems():
         for i in range(amount):
+            height,width = 180,180
+            fill = colors[value] if use_color else "#ffffff"
+            border = colors[value] if border_colored else "#000000"
+            border_width = 10 if border_colored else 1
+            height -= 2*border_width
+            width -= 2*border_width
             yield """<div style='
-                border: solid 1px; 
+                border: solid {5}px;
+                border-color: {4};
                 text-align: center; 
                 width: {3}px; 
                 height: {2}px; 
@@ -73,9 +80,9 @@ def generate_cards(amount_mapping, use_color=True):
                 margin: 5px; 
                 vertical-align:bottom; 
                 padding: 10px;
-                font-size: 80px;
+                font-size: 70px;
                 background-color: {1}'>
-            {0}</div>""".format(value, colors[value] if use_color else "#ffffff", height, width)
+            {0}</div>""".format(value, fill, height, width, border, border_width)
 
 if __name__ == "__main__":
     filename = sys.argv[1]
@@ -90,5 +97,5 @@ if __name__ == "__main__":
         amount_mapping[2**k] = 20
 
     with file(filename, "w+") as f:
-        for html in main(amount_mapping, use_color):
+        for html in main(amount_mapping, use_color=False, border_colored=True):
             f.write(html)
