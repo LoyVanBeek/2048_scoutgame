@@ -22,7 +22,8 @@ colors = {
     256 :"#FF6600",
     512 :"#FF3300",
     1024:"#FF0000",
-    2048:"#BB0000"
+    2048:"#BB0000",
+    ':' :"#000000"
 }
 
 def main(amount_mapping, use_color=True, border_colored=True):
@@ -70,6 +71,7 @@ def generate_cards(amount_mapping, use_color=True, border_colored=True):
             border_width = 10 if border_colored else 1
             height -= 2*border_width
             width -= 2*border_width
+        
             yield """<div style='
                 border: solid {5}px;
                 border-color: {4};
@@ -95,6 +97,8 @@ if __name__ == "__main__":
     amount_mapping = OrderedDict()
     for k in range(1,12):
         amount_mapping[2**k] = 20
+
+    amount_mapping[':'] = 12
 
     with file(filename, "w+") as f:
         for html in main(amount_mapping, use_color=False, border_colored=True):
