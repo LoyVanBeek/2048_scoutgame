@@ -20,5 +20,10 @@ Het spel kan op ieder moment eindigen, of als de kaartjes op zijn etc. Natuurlij
 
 Extra
 -----
-Als het spel te snel eindigt, de spelers te slim zijn of je het spel net wat spannender wil maken kun je de Gemene Deler inzetten.
+Als het spel te snel eindigt, de spelers te slim zijn of je het spel net wat spannender wil maken kun je wat extra's toevoegen:
+
+### Gemene Deler
 Deze speler probeert de gewone spelers te tikken. Als een speler is getikt wordt zijn waarde gehalveerd. De Gemene Deler moet hiervoor de kaartjes meenemen.
+
+### Hogere kaarten inbrengen
+Om het spel wat actiever te maken kun je beginnen met hogere kaartjes, bijv. 128. Dan is er direct wat te verliezen, want met 2 maakt tikken niet uit. 
