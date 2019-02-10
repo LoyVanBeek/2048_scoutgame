@@ -7,7 +7,7 @@ In the original 2048 game, numbers add up once they collide. 2 and 2 makes 4, 16
 
 Prepration
 ----------
-- Divide the sorted cards over ca. 4 leaders, that will walk around the playing field. Divide the cards such that leaders do not have consecutive numbers. Eg. give A only 4, 32, 256, B only 2, 16, 512 etc. 
+- Divide the sorted [cards](https://github.com/LoyVanBeek/2048_scoutgame/blob/master/2048%20Colored%20met%20Gemene%20Deler.pdf) over ca. 4 leaders, that will walk around the playing field. Divide the cards such that leaders do not have consecutive numbers. Eg. give A only 4, 32, 256, B only 2, 16, 512 etc. 
 
 Game
 ----
@@ -26,8 +26,3 @@ The game ends when you decide or cards run out. Of course, the winner is the pla
 Extra
 -----
 When your scouts are too smart, the game ends too soon or you want to make the game a bit more exciting, you can add the Denominator. When this player taps a normal player, his/her value is halved.
-
-Cards
------
-There are several variants for donload, but this is the [most](https://github.com/LoyVanBeek/2048_scoutgame/blob/master/2048%20Colored%20met%20Gemene%20Deler.pdf) complete.
-The cards can be generated with the provided Python script that outputs HTML. 
